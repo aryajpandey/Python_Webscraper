@@ -1,0 +1,635 @@
+quote,author
+"
+      “I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.”
+    ―
+  
+    Marilyn Monroe
+  
+","
+    Marilyn Monroe
+  "
+"
+      “Be yourself; everyone else is already taken.”
+    ―
+  
+    Oscar Wilde
+  
+","
+    Oscar Wilde
+  "
+"
+      “Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”
+    ―
+  
+    Albert Einstein
+  
+","
+    Albert Einstein
+  "
+"
+      “So many books, so little time.”
+    ―
+  
+    Frank Zappa
+  
+","
+    Frank Zappa
+  "
+"
+      “Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.”
+    ―
+  
+    Bernard M. Baruch
+  
+","
+    Bernard M. Baruch
+  "
+"
+      “A room without books is like a body without a soul.”
+    ―
+  
+    Marcus Tullius Cicero
+  
+","
+    Marcus Tullius Cicero
+  "
+"
+      “You've gotta dance like there's nobody watching,Love like you'll never be hurt,Sing like there's nobody listening,And live like it's heaven on earth.”
+    ―
+  
+    William W. Purkey
+  
+","
+    William W. Purkey
+  "
+"
+      “You know you're in love when you can't fall asleep because reality is finally better than your dreams.”
+    ―
+  
+    Dr. Seuss
+  
+","
+    Dr. Seuss
+  "
+"
+      “You only live once, but if you do it right, once is enough.”
+    ―
+  
+    Mae West
+  
+","
+    Mae West
+  "
+"
+      “Be the change that you wish to see in the world.”
+    ―
+  
+    Mahatma Gandhi
+  
+","
+    Mahatma Gandhi
+  "
+"
+      “In three words I can sum up everything I've learned about life: it goes on.”
+    ―
+  
+    Robert Frost
+  
+","
+    Robert Frost
+  "
+"
+      “If you want to know what a man's like, take a good look at how he treats his inferiors, not his equals.”
+    ―
+  
+    J.K. Rowling,
+  
+    
+      Harry Potter and the Goblet of Fire
+    
+    
+
+  
+
+//<![CDATA[  
+
+  function submitShelfLink(unique_id, book_id, shelf_id, shelf_name, submit_form, exclusive) {
+    var checkbox_id = 'shelf_name_' + unique_id + '_' + shelf_id;
+    var element = document.getElementById(checkbox_id)
+
+    var checked = element.checked
+    if (checked && exclusive) {
+      // can't uncheck a radio by clicking it!
+      return
+    }
+    if(document.getElementById(""savingMessage"")){
+      Element.show('savingMessage')
+    }
+    var element_id = 'shelfInDropdownName_' + unique_id + '_' + shelf_id;
+    Element.update(element_id, ""saving..."");
+    if (submit_form) {
+      Element.hide('shelfDropdown_' + unique_id)
+      var form = document.getElementById('addBookForm' + book_id)
+      if (form) {
+        form.shelf.value = shelf_name
+        form.onsubmit()
+      }
+    }
+    else {
+      var action = checked ? 'remove' : ''
+      element.checked = !element.checked
+      new Ajax.Request('/shelf/add_to_shelf', {asynchronous:true, evalScripts:true, onSuccess:function(request){shelfSubmitted(request, book_id, checkbox_id, element_id, unique_id, shelf_name)}, parameters:'book_id=' + book_id + '&name=' + shelf_name + '&a=' + action + '&authenticity_token=' + encodeURIComponent('quT6cz+OMboFfhKcJ2vgt6avV5gY7uMrPSJHM6RwvMj+YHGd04gBL1Uks0SuYu0t1FJkGRbcKN02IRQcd6sFyA==')})
+    }
+  }
+
+  function shelfSubmitted(request, book_id, checkbox_id, element_id, unique_id, shelf_name) {
+    Element.update('shelfListfalse_' + book_id, request.responseText)
+    afterShelfSave(checkbox_id, element_id, unique_id, shelf_name.escapeHTML())
+  }
+
+  function refreshGroupBox(group_id, book_id) {
+    new Ajax.Updater('addGroupBooks' + book_id + '', '/group/add_book_box', {asynchronous:true, evalScripts:true, onSuccess:function(request){refreshGroupBoxComplete(request, book_id);}, parameters:'id=' + group_id + '&book_id=' + book_id + '&refresh=true' + '&authenticity_token=' + encodeURIComponent('tAGfhqrm2Z+wdW3rWw17GmREFCPdyWZQiHXjSB8K2cPghRRoRuDpCuAvzDPSBHaAFrknotP7raaDdrBnzNFgww==')})
+  }
+//]]>
+
+
+
+
+//<![CDATA[
+      var newTip = new Tip($('quote_book_link_6'), ""\n\n  <h2><a class=\""readable bookTitle\"" href=\""https://www.goodreads.com/book/show/6.Harry_Potter_and_the_Goblet_of_Fire?from_choice=false&amp;from_home_module=false\"">Harry Potter and the Goblet of Fire (Harry Potter, #4)<\/a><\/h2>\n\n      <div>\n        by <a class=\""authorName\"" href=\""/author/show/1077326.J_K_Rowling\"">J.K. Rowling<\/a>\n      <\/div>\n\n          <div class=\""smallText uitext darkGreyText\"">\n            <span class=\""minirating\""><span class=\""stars staticStars notranslate\""><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p6\""><\/span><\/span> 4.56 avg rating &mdash; 2,532,000 ratings<\/span>            &mdash; published 2000\n          <\/div>\n\n    <div class=\""addBookTipDescription\"">\n      \n<span id=\""freeTextContainer3556847737626601721\"">Harry Potter is midway through his training as a wizard and his coming of age. Harry wants to get away from the pernicious Dursleys and go to the International Quidditch Cup with Hermione, Ron, and the Weasleys. He wants to dream about Cho Chang, his<\/span>\n  <span id=\""freeText3556847737626601721\"" style=\""display:none\"">Harry Potter is midway through his training as a wizard and his coming of age. Harry wants to get away from the pernicious Dursleys and go to the International Quidditch Cup with Hermione, Ron, and the Weasleys. He wants to dream about Cho Chang, his crush (and maybe do more than dream). He wants to find out about the mysterious event that\'s supposed to take place at Hogwarts this year, an event involving two other rival schools of magic, and a competition that hasn\'t happened for hundreds of years. He wants to be a normal, fourteen-year-old wizard. But unfortunately for Harry Potter, he\'s not normal - even by wizarding standards.And in his case, different can be deadly.<\/span>\n  <a data-text-id=\""3556847737626601721\"" href=\""#\"" onclick=\""swapContent(\$(this));; return false;\"">...more<\/a>\n\n    <\/div>\n\n      <div class=\'wtrButtonContainer wtrSignedOut\' id=\'1_book_6\'>\n<div class=\'wtrUp wtrLeft\'>\n<form action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""n8TLYTz8/wKcaCESmF3tyZVkXJ192vxEZCn3Rj0CarvLQECP0PrPl8wygMoRVOBT55lvHHPoN7JvKqRp7tnTuw==\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""6\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" value=\""to-read\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""1_book_6\"" />\n<input type=\""hidden\"" name=\""wtr_new\"" id=\""wtr_new\"" value=\""true\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""ref\"" id=\""ref\"" value=\""\"" class=\""wtrLeftUpRef\"" />\n<input type=\""hidden\"" name=\""existing_review\"" id=\""existing_review\"" value=\""false\"" class=\""wtrExisting\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<button class=\'wtrToRead\' type=\'submit\'>\n<span class=\'progressTrigger\'>Want to Read<\/span>\n<span class=\'progressIndicator\'>saving…<\/span>\n<\/button>\n<\/form>\n\n<\/div>\n\n<div class=\'wtrRight wtrUp\'>\n<form class=\""hiddenShelfForm\"" action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""iFNtLybVrkBUwFcBl1tk6Fleq6i+LenCtO+HTBiwnr3c1+bBytOe1QSa9tkeUmlyK6OYKbAfIjS/7NRjy2snvQ==\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""1_book_6\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""6\"" />\n<input type=\""hidden\"" name=\""a\"" id=\""a\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<\/form>\n\n<button class=\'wtrShelfButton\'><\/button>\n<div class=\'wtrShelfMenu\'>\n<ul class=\'wtrExclusiveShelves\'>\n<li><button class=\'wtrExclusiveShelf\' name=\'name\' type=\'submit\' value=\'to-read\'>\n<span class=\'progressTrigger\'>Want to Read<\/span>\n<img alt=\""saving…\"" class=\""progressIndicator\"" src=\""https://s.gr-assets.com/assets/loading-trans-ced157046184c3bc7c180ffbfc6825a4.gif\"" />\n<\/button>\n<\/li>\n<li><button class=\'wtrExclusiveShelf\' name=\'name\' type=\'submit\' value=\'currently-reading\'>\n<span class=\'progressTrigger\'>Currently Reading<\/span>\n<img alt=\""saving…\"" class=\""progressIndicator\"" src=\""https://s.gr-assets.com/assets/loading-trans-ced157046184c3bc7c180ffbfc6825a4.gif\"" />\n<\/button>\n<\/li>\n<li><button class=\'wtrExclusiveShelf\' name=\'name\' type=\'submit\' value=\'read\'>\n<span class=\'progressTrigger\'>Read<\/span>\n<img alt=\""saving…\"" class=\""progressIndicator\"" src=\""https://s.gr-assets.com/assets/loading-trans-ced157046184c3bc7c180ffbfc6825a4.gif\"" />\n<\/button>\n<\/li>\n<\/ul>\n<\/div>\n<\/div>\n\n<div class=\'ratingStars wtrRating\'>\n<div class=\'starsErrorTooltip hidden\'>\nError rating book. Refresh and try again.\n<\/div>\n<div class=\'myRating uitext greyText\'>Rate this book<\/div>\n<div class=\'clearRating uitext\'>Clear rating<\/div>\n<div class=\""stars\"" data-resource-id=\""6\"" data-user-id=\""0\"" data-submit-url=\""/review/rate/6?page_url=%2Fquotes&rate_books_page=false&stars_click=false&wtr_button_id=1_book_6\"" data-rating=\""0\""><a class=\""star off\"" title=\""did not like it\"" href=\""#\"" ref=\""\"">1 of 5 stars<\/a><a class=\""star off\"" title=\""it was ok\"" href=\""#\"" ref=\""\"">2 of 5 stars<\/a><a class=\""star off\"" title=\""liked it\"" href=\""#\"" ref=\""\"">3 of 5 stars<\/a><a class=\""star off\"" title=\""really liked it\"" href=\""#\"" ref=\""\"">4 of 5 stars<\/a><a class=\""star off\"" title=\""it was amazing\"" href=\""#\"" ref=\""\"">5 of 5 stars<\/a><\/div>\n<\/div>\n\n<\/div>\n\n\n\n\n"", { style: 'addbook', stem: 'leftMiddle', hook: { tip: 'leftMiddle', target: 'rightMiddle' }, offset: { x: 5, y: 0 }, hideOn: false, width: 400, hideAfter: 0.05, delay: 0.35 });
+      $('quote_book_link_6').observe('prototip:shown', function() {
+        if (this.up('#box')) {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: $('box').getStyle('z-index')})});
+        } else {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: 6000})});
+        }
+      });
+
+      newTip['wrapper'].addClassName('prototipAllowOverflow');
+
+        $('quote_book_link_6').observe('prototip:shown', function () {
+          $$('div.prototip').each(function (e) {
+            if ($('quote_book_link_6').hasClassName('ignored')) {
+              e.setStyle({'display': 'none'});
+              return;
+            }
+            e.setStyle({'overflow': 'visible'});
+          });
+        });
+      $('quote_book_link_6').observe('prototip:hidden', function () {
+        $$('span.elementTwo').each(function (e) {
+          if (e.getStyle('display') !== 'none') {
+            var lessLink = e.next();
+            swapContent(lessLink);
+          }
+        });
+      });
+
+//]]>
+
+
+","
+    J.K. Rowling,
+  "
+"
+      “Don’t walk in front of me… I may not followDon’t walk behind me… I may not leadWalk beside me… just be my friend”
+    ―
+  
+    Albert Camus
+  
+","
+    Albert Camus
+  "
+"
+      “No one can make you feel inferior without your consent.”
+    ―
+  
+    Eleanor Roosevelt,
+  
+    
+      This is My Story
+    
+    
+
+
+
+//<![CDATA[
+      var newTip = new Tip($('quote_book_link_5301304'), ""\n\n  <h2><a class=\""readable bookTitle\"" href=\""https://www.goodreads.com/book/show/5301304-this-is-my-story?from_choice=false&amp;from_home_module=false\"">This is My Story<\/a><\/h2>\n\n      <div>\n        by <a class=\""authorName\"" href=\""/author/show/44566.Eleanor_Roosevelt\"">Eleanor Roosevelt<\/a>\n      <\/div>\n\n          <div class=\""smallText uitext darkGreyText\"">\n            <span class=\""minirating\""><span class=\""stars staticStars notranslate\""><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p6\""><\/span><span size=\""12x12\"" class=\""staticStar p0\""><\/span><\/span> 3.91 avg rating &mdash; 113 ratings<\/span>            &mdash; published 1939\n          <\/div>\n\n\n      <div class=\'wtrButtonContainer wtrSignedOut\' id=\'2_book_5301304\'>\n<div class=\'wtrUp wtrLeft\'>\n<form action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""J2MyK7Y9swy9MfGKY1uyoQ0nqgAczJ+s9X++tuiAW9Bz57nFWjuDme1rUFLqUr87f9qZgRL+VFr+fO2ZO1vi0A==\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""5301304\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" value=\""to-read\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""2_book_5301304\"" />\n<input type=\""hidden\"" name=\""wtr_new\"" id=\""wtr_new\"" value=\""true\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""ref\"" id=\""ref\"" value=\""\"" class=\""wtrLeftUpRef\"" />\n<input type=\""hidden\"" name=\""existing_review\"" id=\""existing_review\"" value=\""false\"" class=\""wtrExisting\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<button class=\'wtrToRead\' type=\'submit\'>\n<span class=\'progressTrigger\'>Want to Read<\/span>\n<span class=\'progressIndicator\'>saving…<\/span>\n<\/button>\n<\/form>\n\n<\/div>\n\n<div class=\'wtrRight wtrUp\'>\n<form class=\""hiddenShelfForm\"" action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""mqGrsB1o8+eQ3/qJR4RXFhB/mpUxxG1CoYJOFa3FgZPOJSBe8W7DcsCFW1HOjVqMYoKpFD/2prSqgR06fh44kw==\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""2_book_5301304\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""5301304\"" />\n<input type=\""hidden\"" name=\""a\"" id=\""a\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<\/form>\n\n<button class=\'wtrShelfButton\'><\/button>\n<\/div>\n\n<div class=\'ratingStars wtrRating\'>\n<div class=\'starsErrorTooltip hidden\'>\nError rating book. Refresh and try again.\n<\/div>\n<div class=\'myRating uitext greyText\'>Rate this book<\/div>\n<div class=\'clearRating uitext\'>Clear rating<\/div>\n<div class=\""stars\"" data-resource-id=\""5301304\"" data-user-id=\""0\"" data-submit-url=\""/review/rate/5301304?page_url=%2Fquotes&rate_books_page=false&stars_click=false&wtr_button_id=2_book_5301304\"" data-rating=\""0\""><a class=\""star off\"" title=\""did not like it\"" href=\""#\"" ref=\""\"">1 of 5 stars<\/a><a class=\""star off\"" title=\""it was ok\"" href=\""#\"" ref=\""\"">2 of 5 stars<\/a><a class=\""star off\"" title=\""liked it\"" href=\""#\"" ref=\""\"">3 of 5 stars<\/a><a class=\""star off\"" title=\""really liked it\"" href=\""#\"" ref=\""\"">4 of 5 stars<\/a><a class=\""star off\"" title=\""it was amazing\"" href=\""#\"" ref=\""\"">5 of 5 stars<\/a><\/div>\n<\/div>\n\n<\/div>\n\n\n\n\n"", { style: 'addbook', stem: 'leftMiddle', hook: { tip: 'leftMiddle', target: 'rightMiddle' }, offset: { x: 5, y: 0 }, hideOn: false, width: 400, hideAfter: 0.05, delay: 0.35 });
+      $('quote_book_link_5301304').observe('prototip:shown', function() {
+        if (this.up('#box')) {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: $('box').getStyle('z-index')})});
+        } else {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: 6000})});
+        }
+      });
+
+      newTip['wrapper'].addClassName('prototipAllowOverflow');
+
+        $('quote_book_link_5301304').observe('prototip:shown', function () {
+          $$('div.prototip').each(function (e) {
+            if ($('quote_book_link_5301304').hasClassName('ignored')) {
+              e.setStyle({'display': 'none'});
+              return;
+            }
+            e.setStyle({'overflow': 'visible'});
+          });
+        });
+      $('quote_book_link_5301304').observe('prototip:hidden', function () {
+        $$('span.elementTwo').each(function (e) {
+          if (e.getStyle('display') !== 'none') {
+            var lessLink = e.next();
+            swapContent(lessLink);
+          }
+        });
+      });
+
+//]]>
+
+
+","
+    Eleanor Roosevelt,
+  "
+"
+      “If you tell the truth, you don't have to remember anything.”
+    ―
+  
+    Mark Twain
+  
+","
+    Mark Twain
+  "
+"
+      “Friendship ... is born at the moment when one man says to another ""What! You too? I thought that no one but myself . . .”
+    ―
+  
+    C.S. Lewis,
+  
+    
+      The Four Loves
+    
+    
+
+
+
+//<![CDATA[
+      var newTip = new Tip($('quote_book_link_30633'), ""\n\n  <h2><a class=\""readable bookTitle\"" href=\""https://www.goodreads.com/book/show/30633.The_Four_Loves?from_choice=false&amp;from_home_module=false\"">The Four Loves<\/a><\/h2>\n\n      <div>\n        by <a class=\""authorName\"" href=\""/author/show/1069006.C_S_Lewis\"">C.S. Lewis<\/a>\n      <\/div>\n\n          <div class=\""smallText uitext darkGreyText\"">\n            <span class=\""minirating\""><span class=\""stars staticStars notranslate\""><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p3\""><\/span><\/span> 4.15 avg rating &mdash; 42,494 ratings<\/span>            &mdash; published 1960\n          <\/div>\n\n    <div class=\""addBookTipDescription\"">\n      \n<span id=\""freeTextContainer14570671639247973282\"">The Four Loves summarizes four kinds of human love--affection, friendship, erotic love, and the love of God. Masterful without being magisterial, this book\'s wise, gentle, candid reflections on the virtues and dangers of love draw on sources from Jan<\/span>\n  <span id=\""freeText14570671639247973282\"" style=\""display:none\"">The Four Loves summarizes four kinds of human love--affection, friendship, erotic love, and the love of God. Masterful without being magisterial, this book\'s wise, gentle, candid reflections on the virtues and dangers of love draw on sources from Jane Austen to St. Augustine. The chapter on charity (love of God) may be the best thing Lewis ever wrote about Christianity. Consider his reflection on Augustine\'s teaching that one must love only God, because only God is eternal, and all earthly love will someday pass away:  Who could conceivably begin to love God on such a prudential ground--because the security (so to speak) is better? Who could even include it among the grounds for loving? Would you choose a wife or a Friend--if it comes to that, would you choose a dog--in this spirit? One must be outside the world of love, of all loves, before one thus calculates.  His description of Christianity here is no less forceful and opinionated than in Mere Christianity or The Problem of Pain, but it is far less anxious about its reader\'s response--and therefore more persuasive than any of his apologetics. When he begins to describe the nature of faith, Lewis writes: &quot;Take it as one man\'s reverie, almost one man\'s myth. If anything in it is useful to you, use it; if anything is not, never give it a second thought.&quot; --Michael Joseph Gross<\/span>\n  <a data-text-id=\""14570671639247973282\"" href=\""#\"" onclick=\""swapContent(\$(this));; return false;\"">...more<\/a>\n\n    <\/div>\n\n      <div class=\'wtrButtonContainer wtrSignedOut\' id=\'3_book_30633\'>\n<div class=\'wtrUp wtrLeft\'>\n<form action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""YkZin1ntvTcuw2w6bPGe+HW2w7HUIPLTjyGlSs8g/II2wulxteuNon6ZzeLl+JNiB0vwMNoSOSWEIvZlHPtFgg==\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""30633\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" value=\""to-read\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""3_book_30633\"" />\n<input type=\""hidden\"" name=\""wtr_new\"" id=\""wtr_new\"" value=\""true\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""ref\"" id=\""ref\"" value=\""\"" class=\""wtrLeftUpRef\"" />\n<input type=\""hidden\"" name=\""existing_review\"" id=\""existing_review\"" value=\""false\"" class=\""wtrExisting\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<button class=\'wtrToRead\' type=\'submit\'>\n<span class=\'progressTrigger\'>Want to Read<\/span>\n<span class=\'progressIndicator\'>saving…<\/span>\n<\/button>\n<\/form>\n\n<\/div>\n\n<div class=\'wtrRight wtrUp\'>\n<form class=\""hiddenShelfForm\"" action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""Q2IGb8vJ0I1GCtVz/Pxhj5FhBDa/T2ITjsct3x/U6UEX5o2BJ8/gGBZQdKt19WwV45w3t7F9qeWFxH7wzA9QQQ==\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""3_book_30633\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""30633\"" />\n<input type=\""hidden\"" name=\""a\"" id=\""a\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<\/form>\n\n<button class=\'wtrShelfButton\'><\/button>\n<\/div>\n\n<div class=\'ratingStars wtrRating\'>\n<div class=\'starsErrorTooltip hidden\'>\nError rating book. Refresh and try again.\n<\/div>\n<div class=\'myRating uitext greyText\'>Rate this book<\/div>\n<div class=\'clearRating uitext\'>Clear rating<\/div>\n<div class=\""stars\"" data-resource-id=\""30633\"" data-user-id=\""0\"" data-submit-url=\""/review/rate/30633?page_url=%2Fquotes&rate_books_page=false&stars_click=false&wtr_button_id=3_book_30633\"" data-rating=\""0\""><a class=\""star off\"" title=\""did not like it\"" href=\""#\"" ref=\""\"">1 of 5 stars<\/a><a class=\""star off\"" title=\""it was ok\"" href=\""#\"" ref=\""\"">2 of 5 stars<\/a><a class=\""star off\"" title=\""liked it\"" href=\""#\"" ref=\""\"">3 of 5 stars<\/a><a class=\""star off\"" title=\""really liked it\"" href=\""#\"" ref=\""\"">4 of 5 stars<\/a><a class=\""star off\"" title=\""it was amazing\"" href=\""#\"" ref=\""\"">5 of 5 stars<\/a><\/div>\n<\/div>\n\n<\/div>\n\n\n\n\n"", { style: 'addbook', stem: 'leftMiddle', hook: { tip: 'leftMiddle', target: 'rightMiddle' }, offset: { x: 5, y: 0 }, hideOn: false, width: 400, hideAfter: 0.05, delay: 0.35 });
+      $('quote_book_link_30633').observe('prototip:shown', function() {
+        if (this.up('#box')) {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: $('box').getStyle('z-index')})});
+        } else {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: 6000})});
+        }
+      });
+
+      newTip['wrapper'].addClassName('prototipAllowOverflow');
+
+        $('quote_book_link_30633').observe('prototip:shown', function () {
+          $$('div.prototip').each(function (e) {
+            if ($('quote_book_link_30633').hasClassName('ignored')) {
+              e.setStyle({'display': 'none'});
+              return;
+            }
+            e.setStyle({'overflow': 'visible'});
+          });
+        });
+      $('quote_book_link_30633').observe('prototip:hidden', function () {
+        $$('span.elementTwo').each(function (e) {
+          if (e.getStyle('display') !== 'none') {
+            var lessLink = e.next();
+            swapContent(lessLink);
+          }
+        });
+      });
+
+//]]>
+
+
+","
+    C.S. Lewis,
+  "
+"
+      “I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.”
+    ―
+  
+    Maya Angelou
+  
+","
+    Maya Angelou
+  "
+"
+      “A friend is someone who knows all about you and still loves you.”
+    ―
+  
+    Elbert Hubbard
+  
+","
+    Elbert Hubbard
+  "
+"
+      “Always forgive your enemies; nothing annoys them so much.”
+    ―
+  
+    Oscar Wilde
+  
+","
+    Oscar Wilde
+  "
+"
+      “To live is the rarest thing in the world. Most people exist, that is all.”
+    ―
+  
+    Oscar Wilde
+  
+","
+    Oscar Wilde
+  "
+"
+      “Live as if you were to die tomorrow. Learn as if you were to live forever.”
+    ―
+  
+    Mahatma Gandhi
+  
+","
+    Mahatma Gandhi
+  "
+"
+      “Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.”
+    ―
+  
+    Martin Luther King Jr.,
+  
+    
+      A Testament of Hope: The Essential Writings and Speeches
+    
+    
+
+
+
+//<![CDATA[
+      var newTip = new Tip($('quote_book_link_53360'), ""\n\n  <h2><a class=\""readable bookTitle\"" href=\""https://www.goodreads.com/book/show/53360.A_Testament_of_Hope?from_choice=false&amp;from_home_module=false\"">A Testament of Hope: The Essential Writings and Speeches<\/a><\/h2>\n\n      <div>\n        by <a class=\""authorName\"" href=\""/author/show/23924.Martin_Luther_King_Jr_\"">Martin Luther King Jr.<\/a>\n      <\/div>\n\n          <div class=\""smallText uitext darkGreyText\"">\n            <span class=\""minirating\""><span class=\""stars staticStars notranslate\""><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p6\""><\/span><\/span> 4.54 avg rating &mdash; 2,125 ratings<\/span>            &mdash; published 1986\n          <\/div>\n\n    <div class=\""addBookTipDescription\"">\n      \n<span id=\""freeTextContainer15237045793954137918\"">Here, in the only major one-volume collection of his writings, speeches, interviews, and autobiographical reflections, is Martin Luther King Jr. on non-violence, social policy, integration, black nationalism, the ethics of love and hope, and more.<\/span>\n\n    <\/div>\n\n      <div class=\'wtrButtonContainer wtrSignedOut\' id=\'4_book_53360\'>\n<div class=\'wtrUp wtrLeft\'>\n<form action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""polmitTtgsXCNJOKIU212aFCbfOvMgtElplq4MJrY8fyDe1kOOuyUJJuMlKoRLhD079ecqEAwLKdmjnPEbDaxw==\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""53360\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" value=\""to-read\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""4_book_53360\"" />\n<input type=\""hidden\"" name=\""wtr_new\"" id=\""wtr_new\"" value=\""true\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""ref\"" id=\""ref\"" value=\""\"" class=\""wtrLeftUpRef\"" />\n<input type=\""hidden\"" name=\""existing_review\"" id=\""existing_review\"" value=\""false\"" class=\""wtrExisting\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<button class=\'wtrToRead\' type=\'submit\'>\n<span class=\'progressTrigger\'>Want to Read<\/span>\n<span class=\'progressIndicator\'>saving…<\/span>\n<\/button>\n<\/form>\n\n<\/div>\n\n<div class=\'wtrRight wtrUp\'>\n<form class=\""hiddenShelfForm\"" action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""ZePNNq1jbt1XYJqKERTcOrUH7SiXZ8AmhMWM2EcpCOoxZ0bYQWVeSAc6O1KYHdGgx/reqZlVC9CPxt/3lPKx6g==\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""4_book_53360\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""53360\"" />\n<input type=\""hidden\"" name=\""a\"" id=\""a\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<\/form>\n\n<button class=\'wtrShelfButton\'><\/button>\n<\/div>\n\n<div class=\'ratingStars wtrRating\'>\n<div class=\'starsErrorTooltip hidden\'>\nError rating book. Refresh and try again.\n<\/div>\n<div class=\'myRating uitext greyText\'>Rate this book<\/div>\n<div class=\'clearRating uitext\'>Clear rating<\/div>\n<div class=\""stars\"" data-resource-id=\""53360\"" data-user-id=\""0\"" data-submit-url=\""/review/rate/53360?page_url=%2Fquotes&rate_books_page=false&stars_click=false&wtr_button_id=4_book_53360\"" data-rating=\""0\""><a class=\""star off\"" title=\""did not like it\"" href=\""#\"" ref=\""\"">1 of 5 stars<\/a><a class=\""star off\"" title=\""it was ok\"" href=\""#\"" ref=\""\"">2 of 5 stars<\/a><a class=\""star off\"" title=\""liked it\"" href=\""#\"" ref=\""\"">3 of 5 stars<\/a><a class=\""star off\"" title=\""really liked it\"" href=\""#\"" ref=\""\"">4 of 5 stars<\/a><a class=\""star off\"" title=\""it was amazing\"" href=\""#\"" ref=\""\"">5 of 5 stars<\/a><\/div>\n<\/div>\n\n<\/div>\n\n\n\n\n"", { style: 'addbook', stem: 'leftMiddle', hook: { tip: 'leftMiddle', target: 'rightMiddle' }, offset: { x: 5, y: 0 }, hideOn: false, width: 400, hideAfter: 0.05, delay: 0.35 });
+      $('quote_book_link_53360').observe('prototip:shown', function() {
+        if (this.up('#box')) {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: $('box').getStyle('z-index')})});
+        } else {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: 6000})});
+        }
+      });
+
+      newTip['wrapper'].addClassName('prototipAllowOverflow');
+
+        $('quote_book_link_53360').observe('prototip:shown', function () {
+          $$('div.prototip').each(function (e) {
+            if ($('quote_book_link_53360').hasClassName('ignored')) {
+              e.setStyle({'display': 'none'});
+              return;
+            }
+            e.setStyle({'overflow': 'visible'});
+          });
+        });
+      $('quote_book_link_53360').observe('prototip:hidden', function () {
+        $$('span.elementTwo').each(function (e) {
+          if (e.getStyle('display') !== 'none') {
+            var lessLink = e.next();
+            swapContent(lessLink);
+          }
+        });
+      });
+
+//]]>
+
+
+","
+    Martin Luther King Jr.,
+  "
+"
+      “I am so clever that sometimes I don't understand a single word of what I am saying.”
+    ―
+  
+    Oscar Wilde,
+  
+    
+      The Happy Prince and Other Stories
+    
+    
+
+
+
+//<![CDATA[
+      var newTip = new Tip($('quote_book_link_6315424'), ""\n\n  <h2><a class=\""readable bookTitle\"" href=\""https://www.goodreads.com/book/show/6315424-the-happy-prince-and-other-stories?from_choice=false&amp;from_home_module=false\"">The Happy Prince and Other Stories<\/a><\/h2>\n\n      <div>\n        by <a class=\""authorName\"" href=\""/author/show/3565.Oscar_Wilde\"">Oscar Wilde<\/a>\n      <\/div>\n\n          <div class=\""smallText uitext darkGreyText\"">\n            <span class=\""minirating\""><span class=\""stars staticStars notranslate\""><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p3\""><\/span><\/span> 4.14 avg rating &mdash; 15,031 ratings<\/span>            &mdash; published 1888\n          <\/div>\n\n    <div class=\""addBookTipDescription\"">\n      \n<span id=\""freeTextContainer114339413150027536\"">A haunting, magical fairy-tale collection, in which Oscar Wilde beautifully evokes (among others) The Happy Prince who was not so happy after all, The Selfish Giant who learned to love little children and The Star Child who did not love his parents a<\/span>\n  <span id=\""freeText114339413150027536\"" style=\""display:none\"">A haunting, magical fairy-tale collection, in which Oscar Wilde beautifully evokes (among others) The Happy Prince who was not so happy after all, The Selfish Giant who learned to love little children and The Star Child who did not love his parents as much as he should. Each of the stories shines with poetry and magic and will be enjoyed by children of every age. A perfect collection for children young and old, introduced by Markus Zusak, bestselling author of The Book Thief.<\/span>\n  <a data-text-id=\""114339413150027536\"" href=\""#\"" onclick=\""swapContent(\$(this));; return false;\"">...more<\/a>\n\n    <\/div>\n\n      <div class=\'wtrButtonContainer wtrSignedOut\' id=\'5_book_6315424\'>\n<div class=\'wtrUp wtrLeft\'>\n<form action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""M9nlSCxnmjEIIb9eusnhCUwlsY5qcoGAjvoMqZGdkBhnXW6mwGGqpFh7HoYzwOyTPtiCD2RASnaF+V+GQkYpGA==\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""6315424\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" value=\""to-read\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""5_book_6315424\"" />\n<input type=\""hidden\"" name=\""wtr_new\"" id=\""wtr_new\"" value=\""true\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""ref\"" id=\""ref\"" value=\""\"" class=\""wtrLeftUpRef\"" />\n<input type=\""hidden\"" name=\""existing_review\"" id=\""existing_review\"" value=\""false\"" class=\""wtrExisting\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<button class=\'wtrToRead\' type=\'submit\'>\n<span class=\'progressTrigger\'>Want to Read<\/span>\n<span class=\'progressIndicator\'>saving…<\/span>\n<\/button>\n<\/form>\n\n<\/div>\n\n<div class=\'wtrRight wtrUp\'>\n<form class=\""hiddenShelfForm\"" action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""wjV2Vw2jLmoBOQcbei/s/0n1F9Zgw4TXM1V1ooFqdMGWsf254aUe/1FjpsPzJuFlOwgkV27xTyE4ViaNUrHNwQ==\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""5_book_6315424\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""6315424\"" />\n<input type=\""hidden\"" name=\""a\"" id=\""a\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<\/form>\n\n<button class=\'wtrShelfButton\'><\/button>\n<\/div>\n\n<div class=\'ratingStars wtrRating\'>\n<div class=\'starsErrorTooltip hidden\'>\nError rating book. Refresh and try again.\n<\/div>\n<div class=\'myRating uitext greyText\'>Rate this book<\/div>\n<div class=\'clearRating uitext\'>Clear rating<\/div>\n<div class=\""stars\"" data-resource-id=\""6315424\"" data-user-id=\""0\"" data-submit-url=\""/review/rate/6315424?page_url=%2Fquotes&rate_books_page=false&stars_click=false&wtr_button_id=5_book_6315424\"" data-rating=\""0\""><a class=\""star off\"" title=\""did not like it\"" href=\""#\"" ref=\""\"">1 of 5 stars<\/a><a class=\""star off\"" title=\""it was ok\"" href=\""#\"" ref=\""\"">2 of 5 stars<\/a><a class=\""star off\"" title=\""liked it\"" href=\""#\"" ref=\""\"">3 of 5 stars<\/a><a class=\""star off\"" title=\""really liked it\"" href=\""#\"" ref=\""\"">4 of 5 stars<\/a><a class=\""star off\"" title=\""it was amazing\"" href=\""#\"" ref=\""\"">5 of 5 stars<\/a><\/div>\n<\/div>\n\n<\/div>\n\n\n\n\n"", { style: 'addbook', stem: 'leftMiddle', hook: { tip: 'leftMiddle', target: 'rightMiddle' }, offset: { x: 5, y: 0 }, hideOn: false, width: 400, hideAfter: 0.05, delay: 0.35 });
+      $('quote_book_link_6315424').observe('prototip:shown', function() {
+        if (this.up('#box')) {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: $('box').getStyle('z-index')})});
+        } else {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: 6000})});
+        }
+      });
+
+      newTip['wrapper'].addClassName('prototipAllowOverflow');
+
+        $('quote_book_link_6315424').observe('prototip:shown', function () {
+          $$('div.prototip').each(function (e) {
+            if ($('quote_book_link_6315424').hasClassName('ignored')) {
+              e.setStyle({'display': 'none'});
+              return;
+            }
+            e.setStyle({'overflow': 'visible'});
+          });
+        });
+      $('quote_book_link_6315424').observe('prototip:hidden', function () {
+        $$('span.elementTwo').each(function (e) {
+          if (e.getStyle('display') !== 'none') {
+            var lessLink = e.next();
+            swapContent(lessLink);
+          }
+        });
+      });
+
+//]]>
+
+
+","
+    Oscar Wilde,
+  "
+"
+      “Without music, life would be a mistake.”
+    ―
+  
+    Friedrich Nietzsche,
+  
+    
+      Twilight of the Idols
+    
+    
+
+
+
+//<![CDATA[
+      var newTip = new Tip($('quote_book_link_851994'), ""\n\n  <h2><a class=\""readable bookTitle\"" href=\""https://www.goodreads.com/book/show/851994.Twilight_of_the_Idols?from_choice=false&amp;from_home_module=false\"">Twilight of the Idols<\/a><\/h2>\n\n      <div>\n        by <a class=\""authorName\"" href=\""/author/show/1938.Friedrich_Nietzsche\"">Friedrich Nietzsche<\/a>\n      <\/div>\n\n          <div class=\""smallText uitext darkGreyText\"">\n            <span class=\""minirating\""><span class=\""stars staticStars notranslate\""><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p6\""><\/span><span size=\""12x12\"" class=\""staticStar p0\""><\/span><\/span> 3.94 avg rating &mdash; 7,545 ratings<\/span>            &mdash; published 1888\n          <\/div>\n\n    <div class=\""addBookTipDescription\"">\n      \n<span id=\""freeTextContainer10148294654173875815\"">Twilight of the Idols presents a vivid, compressed overview of many of Nietzsche’s mature ideas, including his attack on Plato’s Socrates and on the Platonic legacy in Western philosophy and culture. Polt provides a trustworthy rendering of Nietzsche<\/span>\n  <span id=\""freeText10148294654173875815\"" style=\""display:none\"">Twilight of the Idols presents a vivid, compressed overview of many of Nietzsche’s mature ideas, including his attack on Plato’s Socrates and on the Platonic legacy in Western philosophy and culture. Polt provides a trustworthy rendering of Nietzsche’s text in contemporary American English, complete with notes prepared by the translator and Tracy Strong. An authoritative Introduction by Strong makes this an outstanding edition.<\/span>\n  <a data-text-id=\""10148294654173875815\"" href=\""#\"" onclick=\""swapContent(\$(this));; return false;\"">...more<\/a>\n\n    <\/div>\n\n      <div class=\'wtrButtonContainer wtrSignedOut\' id=\'6_book_851994\'>\n<div class=\'wtrUp wtrLeft\'>\n<form action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""5flB1tGDq72o+sU8cTlLn7ijQCIeL/Ughzh7qxp9XjOxfco4PYWbKPigZOT4MEYFyl5zoxAdPtaMOyiEyabnMw==\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""851994\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" value=\""to-read\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""6_book_851994\"" />\n<input type=\""hidden\"" name=\""wtr_new\"" id=\""wtr_new\"" value=\""true\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""ref\"" id=\""ref\"" value=\""\"" class=\""wtrLeftUpRef\"" />\n<input type=\""hidden\"" name=\""existing_review\"" id=\""existing_review\"" value=\""false\"" class=\""wtrExisting\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<button class=\'wtrToRead\' type=\'submit\'>\n<span class=\'progressTrigger\'>Want to Read<\/span>\n<span class=\'progressIndicator\'>saving…<\/span>\n<\/button>\n<\/form>\n\n<\/div>\n\n<div class=\'wtrRight wtrUp\'>\n<form class=\""hiddenShelfForm\"" action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""EvtI5NEAXoT+H1cwn5c4ncCWf9cD7AjV+yHQ6iQOnKZGf8MKPQZuEa5F9ugWnjUHsmtMVg3ewyPwIoPF99Ulpg==\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""6_book_851994\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""851994\"" />\n<input type=\""hidden\"" name=\""a\"" id=\""a\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<\/form>\n\n<button class=\'wtrShelfButton\'><\/button>\n<\/div>\n\n<div class=\'ratingStars wtrRating\'>\n<div class=\'starsErrorTooltip hidden\'>\nError rating book. Refresh and try again.\n<\/div>\n<div class=\'myRating uitext greyText\'>Rate this book<\/div>\n<div class=\'clearRating uitext\'>Clear rating<\/div>\n<div class=\""stars\"" data-resource-id=\""851994\"" data-user-id=\""0\"" data-submit-url=\""/review/rate/851994?page_url=%2Fquotes&rate_books_page=false&stars_click=false&wtr_button_id=6_book_851994\"" data-rating=\""0\""><a class=\""star off\"" title=\""did not like it\"" href=\""#\"" ref=\""\"">1 of 5 stars<\/a><a class=\""star off\"" title=\""it was ok\"" href=\""#\"" ref=\""\"">2 of 5 stars<\/a><a class=\""star off\"" title=\""liked it\"" href=\""#\"" ref=\""\"">3 of 5 stars<\/a><a class=\""star off\"" title=\""really liked it\"" href=\""#\"" ref=\""\"">4 of 5 stars<\/a><a class=\""star off\"" title=\""it was amazing\"" href=\""#\"" ref=\""\"">5 of 5 stars<\/a><\/div>\n<\/div>\n\n<\/div>\n\n\n\n\n"", { style: 'addbook', stem: 'leftMiddle', hook: { tip: 'leftMiddle', target: 'rightMiddle' }, offset: { x: 5, y: 0 }, hideOn: false, width: 400, hideAfter: 0.05, delay: 0.35 });
+      $('quote_book_link_851994').observe('prototip:shown', function() {
+        if (this.up('#box')) {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: $('box').getStyle('z-index')})});
+        } else {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: 6000})});
+        }
+      });
+
+      newTip['wrapper'].addClassName('prototipAllowOverflow');
+
+        $('quote_book_link_851994').observe('prototip:shown', function () {
+          $$('div.prototip').each(function (e) {
+            if ($('quote_book_link_851994').hasClassName('ignored')) {
+              e.setStyle({'display': 'none'});
+              return;
+            }
+            e.setStyle({'overflow': 'visible'});
+          });
+        });
+      $('quote_book_link_851994').observe('prototip:hidden', function () {
+        $$('span.elementTwo').each(function (e) {
+          if (e.getStyle('display') !== 'none') {
+            var lessLink = e.next();
+            swapContent(lessLink);
+          }
+        });
+      });
+
+//]]>
+
+
+","
+    Friedrich Nietzsche,
+  "
+"
+      “We accept the love we think we deserve.”
+    ―
+  
+    Stephen Chbosky,
+  
+    
+      The Perks of Being a Wallflower
+    
+    
+
+
+
+//<![CDATA[
+      var newTip = new Tip($('quote_book_link_22628'), ""\n\n  <h2><a class=\""readable bookTitle\"" href=\""https://www.goodreads.com/book/show/22628.The_Perks_of_Being_a_Wallflower?from_choice=false&amp;from_home_module=false\"">The Perks of Being a Wallflower<\/a><\/h2>\n\n      <div>\n        by <a class=\""authorName\"" href=\""/author/show/12898.Stephen_Chbosky\"">Stephen Chbosky<\/a>\n      <\/div>\n\n          <div class=\""smallText uitext darkGreyText\"">\n            <span class=\""minirating\""><span class=\""stars staticStars notranslate\""><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p3\""><\/span><\/span> 4.20 avg rating &mdash; 1,227,520 ratings<\/span>            &mdash; published 1999\n          <\/div>\n\n    <div class=\""addBookTipDescription\"">\n      \n<span id=\""freeTextContainer7059601461232497613\"">standing on the fringes of life...\noffers a unique perspective. But there comes a time to see\nwhat it looks like from the dance floor.\n\nThis haunting novel about the dilemma of passivity vs. passion marks the stunning debut of a provocative new voice<\/span>\n  <span id=\""freeText7059601461232497613\"" style=\""display:none\"">standing on the fringes of life...\noffers a unique perspective. But there comes a time to see\nwhat it looks like from the dance floor.\n\nThis haunting novel about the dilemma of passivity vs. passion marks the stunning debut of a provocative new voice in contemporary fiction: The Perks of Being A WALLFLOWER\n\nThis is the story of what it\'s like to grow up in high school. More intimate than a diary, Charlie\'s letters are singular and unique, hilarious and devastating. We may not know where he lives. We may not know to whom he is writing. All we know is the world he shares. Caught between trying to live his life and trying to run from it puts him on a strange course through uncharted territory. The world of first dates and mixed tapes, family dramas and new friends. The world of sex, drugs, and The Rocky Horror Picture Show, when all one requires is that the perfect song on that perfect drive to feel infinite.\n\nThrough Charlie, Stephen Chbosky has created a deeply affecting coming-of-age story, a powerful novel that will spirit you back to those wild and poignant roller coaster days known as growing up.\n\n(back cover)<\/span>\n  <a data-text-id=\""7059601461232497613\"" href=\""#\"" onclick=\""swapContent(\$(this));; return false;\"">...more<\/a>\n\n    <\/div>\n\n      <div class=\'wtrButtonContainer wtrSignedOut\' id=\'7_book_22628\'>\n<div class=\'wtrUp wtrLeft\'>\n<form action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""PheESVEV+SpXXPIrtZ+boe0mIoQaBEisLtyAXq5zmvNqkw+nvRPJvwcGU/M8lpY7n9sRBRQ2g1ol39Nxfagj8w==\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""22628\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" value=\""to-read\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""7_book_22628\"" />\n<input type=\""hidden\"" name=\""wtr_new\"" id=\""wtr_new\"" value=\""true\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""ref\"" id=\""ref\"" value=\""\"" class=\""wtrLeftUpRef\"" />\n<input type=\""hidden\"" name=\""existing_review\"" id=\""existing_review\"" value=\""false\"" class=\""wtrExisting\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<button class=\'wtrToRead\' type=\'submit\'>\n<span class=\'progressTrigger\'>Want to Read<\/span>\n<span class=\'progressIndicator\'>saving…<\/span>\n<\/button>\n<\/form>\n\n<\/div>\n\n<div class=\'wtrRight wtrUp\'>\n<form class=\""hiddenShelfForm\"" action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""S95RelOJKPbi78gH2oT5+l8G4me+x2uYsY2SyQHBL7UfWtqUv48YY7K1ad9TjfRgLfvR5rD1oG66jsHm0hqWtQ==\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""7_book_22628\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""22628\"" />\n<input type=\""hidden\"" name=\""a\"" id=\""a\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<\/form>\n\n<button class=\'wtrShelfButton\'><\/button>\n<\/div>\n\n<div class=\'ratingStars wtrRating\'>\n<div class=\'starsErrorTooltip hidden\'>\nError rating book. Refresh and try again.\n<\/div>\n<div class=\'myRating uitext greyText\'>Rate this book<\/div>\n<div class=\'clearRating uitext\'>Clear rating<\/div>\n<div class=\""stars\"" data-resource-id=\""22628\"" data-user-id=\""0\"" data-submit-url=\""/review/rate/22628?page_url=%2Fquotes&rate_books_page=false&stars_click=false&wtr_button_id=7_book_22628\"" data-rating=\""0\""><a class=\""star off\"" title=\""did not like it\"" href=\""#\"" ref=\""\"">1 of 5 stars<\/a><a class=\""star off\"" title=\""it was ok\"" href=\""#\"" ref=\""\"">2 of 5 stars<\/a><a class=\""star off\"" title=\""liked it\"" href=\""#\"" ref=\""\"">3 of 5 stars<\/a><a class=\""star off\"" title=\""really liked it\"" href=\""#\"" ref=\""\"">4 of 5 stars<\/a><a class=\""star off\"" title=\""it was amazing\"" href=\""#\"" ref=\""\"">5 of 5 stars<\/a><\/div>\n<\/div>\n\n<\/div>\n\n\n\n\n"", { style: 'addbook', stem: 'leftMiddle', hook: { tip: 'leftMiddle', target: 'rightMiddle' }, offset: { x: 5, y: 0 }, hideOn: false, width: 400, hideAfter: 0.05, delay: 0.35 });
+      $('quote_book_link_22628').observe('prototip:shown', function() {
+        if (this.up('#box')) {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: $('box').getStyle('z-index')})});
+        } else {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: 6000})});
+        }
+      });
+
+      newTip['wrapper'].addClassName('prototipAllowOverflow');
+
+        $('quote_book_link_22628').observe('prototip:shown', function () {
+          $$('div.prototip').each(function (e) {
+            if ($('quote_book_link_22628').hasClassName('ignored')) {
+              e.setStyle({'display': 'none'});
+              return;
+            }
+            e.setStyle({'overflow': 'visible'});
+          });
+        });
+      $('quote_book_link_22628').observe('prototip:hidden', function () {
+        $$('span.elementTwo').each(function (e) {
+          if (e.getStyle('display') !== 'none') {
+            var lessLink = e.next();
+            swapContent(lessLink);
+          }
+        });
+      });
+
+//]]>
+
+
+","
+    Stephen Chbosky,
+  "
+"
+      “To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.”
+    ―
+  
+    Ralph Waldo Emerson
+  
+","
+    Ralph Waldo Emerson
+  "
+"
+      “Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.”
+    ―
+  
+    Rob Siltanen
+  
+","
+    Rob Siltanen
+  "
+"
+      “Insanity is doing the same thing, over and over again, but expecting different results.”
+    ―
+  
+    Narcotics Anonymous
+  
+","
+    Narcotics Anonymous
+  "
+"
+      “I believe that everything happens for a reason. People change so that you can learn to let go, things go wrong so that you appreciate them when they're right, you believe lies so you eventually learn to trust no one but yourself, and sometimes good things fall apart so better things can fall together.”
+    ―
+  
+    Marilyn Monroe
+  
+","
+    Marilyn Monroe
+  "
+"
+      “Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.”
+    ―
+  
+    H. Jackson Brown Jr.,
+  
+    
+      P.S. I Love You
+    
+    
+
+
+
+//<![CDATA[
+      var newTip = new Tip($('quote_book_link_42165'), ""\n\n  <h2><a class=\""readable bookTitle\"" href=\""https://www.goodreads.com/book/show/42165.P_S_I_Love_You?from_choice=false&amp;from_home_module=false\"">P.S. I Love You<\/a><\/h2>\n\n      <div>\n        by <a class=\""authorName\"" href=\""/author/show/33394.H_Jackson_Brown_Jr_\"">H. Jackson Brown Jr.<\/a>\n      <\/div>\n\n          <div class=\""smallText uitext darkGreyText\"">\n            <span class=\""minirating\""><span class=\""stars staticStars notranslate\""><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p10\""><\/span><span size=\""12x12\"" class=\""staticStar p6\""><\/span><span size=\""12x12\"" class=\""staticStar p0\""><\/span><\/span> 3.94 avg rating &mdash; 324 ratings<\/span>            &mdash; published 1990\n          <\/div>\n\n    <div class=\""addBookTipDescription\"">\n      \n<span id=\""freeTextContainer8689664947392070718\"">\""Mom loved to write to my sister and me,\"" H. Jackson Brown writes. \""They began when I was an eight-year old camper away from home for the first time. When I opened Mom\'s letter, I would always read the P.S. first. I just couldn\'t wait to discover wha<\/span>\n  <span id=\""freeText8689664947392070718\"" style=\""display:none\"">&quot;Mom loved to write to my sister and me,&quot; H. Jackson Brown writes. &quot;They began when I was an eight-year old camper away from home for the first time. When I opened Mom\'s letter, I would always read the P.S. first. I just couldn\'t wait to discover what revelations, humor, observations, admonitions, and encouragement she wanted to share with me.&quot;\n\n&quot;No matter how hard you hug your money, it never hugs you back,&quot; says one P.S. &quot;Middle age is when you have two choices and you choose the one that gets you home earlier, &quot; says another.\n\nJack Brown\'s mother shared valuable advice with him about the issues of wisdom, hope, humor, and faith. &quot;Although some were written more than thirty years ago,&quot; Brown says, &quot;they still run with truth and insight.&quot;<\/span>\n  <a data-text-id=\""8689664947392070718\"" href=\""#\"" onclick=\""swapContent(\$(this));; return false;\"">...more<\/a>\n\n    <\/div>\n\n      <div class=\'wtrButtonContainer wtrSignedOut\' id=\'8_book_42165\'>\n<div class=\'wtrUp wtrLeft\'>\n<form action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""QY/INZbd7X4X5QbBSKKcUUbhU90Y1N6SKoYolNPe+OYVC0Pbetvd60e/pxnBq5HLNBxgXBbmFWQhhXu7AAVB5g==\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""42165\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" value=\""to-read\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""8_book_42165\"" />\n<input type=\""hidden\"" name=\""wtr_new\"" id=\""wtr_new\"" value=\""true\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""ref\"" id=\""ref\"" value=\""\"" class=\""wtrLeftUpRef\"" />\n<input type=\""hidden\"" name=\""existing_review\"" id=\""existing_review\"" value=\""false\"" class=\""wtrExisting\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<button class=\'wtrToRead\' type=\'submit\'>\n<span class=\'progressTrigger\'>Want to Read<\/span>\n<span class=\'progressIndicator\'>saving…<\/span>\n<\/button>\n<\/form>\n\n<\/div>\n\n<div class=\'wtrRight wtrUp\'>\n<form class=\""hiddenShelfForm\"" action=\""/shelf/add_to_shelf\"" accept-charset=\""UTF-8\"" method=\""post\""><input name=\""utf8\"" type=\""hidden\"" value=\""&#x2713;\"" /><input type=\""hidden\"" name=\""authenticity_token\"" value=\""1lyGlOt7ovv4AIHOQIzeyE/59Ool5ciHdRZlIYi0bVqC2A16B32SbqhaIBbJhdNSPQTHayvXA3F+FTYOW2/UWg==\"" />\n<input type=\""hidden\"" name=\""unique_id\"" id=\""unique_id\"" value=\""8_book_42165\"" />\n<input type=\""hidden\"" name=\""book_id\"" id=\""book_id\"" value=\""42165\"" />\n<input type=\""hidden\"" name=\""a\"" id=\""a\"" />\n<input type=\""hidden\"" name=\""name\"" id=\""name\"" />\n<input type=\""hidden\"" name=\""from_choice\"" id=\""from_choice\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""from_home_module\"" id=\""from_home_module\"" value=\""false\"" />\n<input type=\""hidden\"" name=\""page_url\"" id=\""page_url\"" value=\""/quotes\"" />\n<\/form>\n\n<button class=\'wtrShelfButton\'><\/button>\n<\/div>\n\n<div class=\'ratingStars wtrRating\'>\n<div class=\'starsErrorTooltip hidden\'>\nError rating book. Refresh and try again.\n<\/div>\n<div class=\'myRating uitext greyText\'>Rate this book<\/div>\n<div class=\'clearRating uitext\'>Clear rating<\/div>\n<div class=\""stars\"" data-resource-id=\""42165\"" data-user-id=\""0\"" data-submit-url=\""/review/rate/42165?page_url=%2Fquotes&rate_books_page=false&stars_click=false&wtr_button_id=8_book_42165\"" data-rating=\""0\""><a class=\""star off\"" title=\""did not like it\"" href=\""#\"" ref=\""\"">1 of 5 stars<\/a><a class=\""star off\"" title=\""it was ok\"" href=\""#\"" ref=\""\"">2 of 5 stars<\/a><a class=\""star off\"" title=\""liked it\"" href=\""#\"" ref=\""\"">3 of 5 stars<\/a><a class=\""star off\"" title=\""really liked it\"" href=\""#\"" ref=\""\"">4 of 5 stars<\/a><a class=\""star off\"" title=\""it was amazing\"" href=\""#\"" ref=\""\"">5 of 5 stars<\/a><\/div>\n<\/div>\n\n<\/div>\n\n\n\n\n"", { style: 'addbook', stem: 'leftMiddle', hook: { tip: 'leftMiddle', target: 'rightMiddle' }, offset: { x: 5, y: 0 }, hideOn: false, width: 400, hideAfter: 0.05, delay: 0.35 });
+      $('quote_book_link_42165').observe('prototip:shown', function() {
+        if (this.up('#box')) {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: $('box').getStyle('z-index')})});
+        } else {
+          $$('div.prototip').each(function(i){i.setStyle({zIndex: 6000})});
+        }
+      });
+
+      newTip['wrapper'].addClassName('prototipAllowOverflow');
+
+        $('quote_book_link_42165').observe('prototip:shown', function () {
+          $$('div.prototip').each(function (e) {
+            if ($('quote_book_link_42165').hasClassName('ignored')) {
+              e.setStyle({'display': 'none'});
+              return;
+            }
+            e.setStyle({'overflow': 'visible'});
+          });
+        });
+      $('quote_book_link_42165').observe('prototip:hidden', function () {
+        $$('span.elementTwo').each(function (e) {
+          if (e.getStyle('display') !== 'none') {
+            var lessLink = e.next();
+            swapContent(lessLink);
+          }
+        });
+      });
+
+//]]>
+
+
+","
+    H. Jackson Brown Jr.,
+  "
